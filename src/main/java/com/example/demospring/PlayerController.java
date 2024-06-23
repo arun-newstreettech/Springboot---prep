@@ -45,6 +45,7 @@ public class PlayerController {
 
 
     @PostMapping("/createPlayer")
+    @CrossOrigin(origins = "http://localhost:3001")
     public ResponseEntity<Players> createUser(@RequestBody Players players) {
         Players createdPlayer = playersService.createPlayer(players);
         return new ResponseEntity<>(createdPlayer, HttpStatus.CREATED);
@@ -66,6 +67,7 @@ public class PlayerController {
 
 
     @GetMapping ("/playerrankingsbatting/test")
+    @CrossOrigin(origins = "http://localhost:3001")
     public List<Battingplayerrankings_test> getTestBatRank(@RequestParam(required = false)Integer limit){
 
         if(limit!=null){
@@ -77,6 +79,7 @@ public class PlayerController {
     }
 
     @GetMapping ("/playerrankingsbowling")
+    @CrossOrigin(origins = "http://localhost:3001")
     public List<Bowlingplayerrankings_allformat> getBowlersRank(@RequestParam(required = true)String format,@RequestParam(required = false)Integer limit){
 
         if(format!=null && limit!=null){
